@@ -115,7 +115,7 @@ CORS(
 
 from huggingface_hub import login
 from transformers import DistilBertForSequenceClassification, DistilBertTokenizerFast
-
+from torch.nn import functional as F 
 # Replace with your Hugging Face token
 token = "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"
 
@@ -143,11 +143,20 @@ def predict_hate():
 
     # Get the predicted class (for classification)
     predicted_class = torch.argmax(logits, dim=-1).item()
+    probabilities = F.softmax(logits, dim=-1).squeeze().tolist()
     dic = {
         0: "Not hate",
         1: "Hate"
     }
-    return jsonify(dic[predicted_class])
+    response = {
+        "prediction": dic[predicted_class],
+        "probabilities": {
+            "Not hate": probabilities[0],
+            "Hate": probabilities[1]
+        }
+    }
+
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)

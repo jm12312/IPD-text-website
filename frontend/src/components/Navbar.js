@@ -6,6 +6,9 @@ const Navbar = () => {
         <header className="bg-white border-b">
             <nav className="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8" aria-label="Global">
                 <div className='flex gap-8'>
+                    <Link to="/hate" className="text-base font-semibold leading-6 text-gray-900">
+                        Hate
+                    </Link>
                     <Link to="/sentiment" className="text-base font-semibold leading-6 text-gray-900">
                         Sentiment
                     </Link>
