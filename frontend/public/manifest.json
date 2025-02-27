@@ -1,0 +1,13 @@
+{
+    "short_name": "React App",
+    "name": "Create React App",
+    "icons": [
+
+    ],
+    "start_url": ".",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#000000"
+  }
+  
