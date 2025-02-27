@@ -16,7 +16,7 @@ const Hate = () => {
                 return;
             }
 
-            const response = await axios.post('http://127.0.0.1:8000/predict/hate', { "text": inputText }, {withCredentials: true});
+            const response = await axios.post('https://ipd-text-website.onrender.com/predict/hate', { "text": inputText }, {withCredentials: true});
             
             // Extract the predicted emotion and probabilities
             const { prediction, probabilities } = response.data;
