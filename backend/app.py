@@ -13,10 +13,7 @@ import torch
 app = Flask(__name__)
 CORS(
     app,
-    resources={r"/predict/*": {
-        "origins": "http://localhost:3000"
-        }
-    }
+    supports_credentials=True
 )
 
 # model_sent = joblib.load("models/sentiment/DistilbertFineTuned3_10krows_test.pkl")
